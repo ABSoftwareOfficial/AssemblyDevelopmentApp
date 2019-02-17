@@ -1,0 +1,29 @@
+﻿<Page x:Class="AssemblyDevelopmentApp.Pages.OverwritePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:AssemblyDevelopmentApp.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="OverwritePage">
+
+    <StackPanel>
+
+        <TextBlock Style="{StaticResource TitleTextBlock}" Foreground="{StaticResource BadFormColorBrush}" HorizontalAlignment="Center">Overwrite</TextBlock>
+        <TextBlock Style="{StaticResource DescriptionTextBlock}" Width="300" TextWrapping="WrapWithOverflow">We detected that you had a valid project already loaded, would you like to overwrite the current project <Run Foreground="{StaticResource ForegroundColorBrush}">(this can not be undone)</Run>, or browse to a new path?</TextBlock>
+
+        <Grid Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" Style="{StaticResource DialogButton}" Margin="0 0 3 0" Command="{Binding CancelNewProjectCommand}">Cancel</Button>
+            <Button Grid.Column="1" Style="{StaticResource DialogButton}" Margin="3 0 0 0" Command="{Binding OverwriteNewProjectCommand}">Overwrite</Button>
+        </Grid>
+
+        <Button Grid.Column="0" Style="{StaticResource DialogButton}" Margin="10 0" Command="{Binding BrowseNewProjectCommand}">Browse</Button>
+
+    </StackPanel>
+</Page>

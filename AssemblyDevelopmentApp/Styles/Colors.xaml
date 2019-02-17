@@ -1,0 +1,45 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:AssemblyDevelopmentApp.Styles">
+
+    <!-- Light Background -->
+    <Color x:Key="LightBackgroundColor">#555</Color>
+    <SolidColorBrush x:Key="LightBackgroundColorBrush" Color="{StaticResource LightBackgroundColor}" />
+    
+    <!-- Background -->
+    <Color x:Key="BackgroundColor">#222</Color>
+    <SolidColorBrush x:Key="BackgroundColorBrush" Color="{StaticResource BackgroundColor}" />
+
+    <!-- Foreground -->
+    <Color x:Key="ForegroundColor">#fff</Color>
+    <SolidColorBrush x:Key="ForegroundColorBrush" Color="{StaticResource ForegroundColor}" />
+
+    <!-- Dark Foreground -->
+    <Color x:Key="DarkForegroundColor">#ddd</Color>
+    <SolidColorBrush x:Key="DarkForegroundColorBrush" Color="{StaticResource DarkForegroundColor}" />
+
+    <!-- Selected -->
+    <Color x:Key="SelectedColor">#88d</Color>
+    <SolidColorBrush x:Key="SelectedColorBrush" Color="{StaticResource SelectedColor}" />
+
+    <!-- Hovered -->
+    <Color x:Key="HoveredColor">#aaa</Color>
+    <SolidColorBrush x:Key="HoveredColorBrush" Color="{StaticResource HoveredColor}" />
+
+    <!-- Pressed -->
+    <Color x:Key="PressedColor">#888</Color>
+    <SolidColorBrush x:Key="PressedColorBrush" Color="{StaticResource PressedColor}" />
+    
+    <!-- Link -->
+    <Color x:Key="LinkColor">#88f</Color>
+    <SolidColorBrush x:Key="LinkColorBrush" Color="{StaticResource LinkColor}" />
+    
+    <!-- Form Color -->
+    <Color x:Key="FormColor">#aa4</Color>
+    <SolidColorBrush x:Key="FormColorBrush" Color="{StaticResource FormColor}" />
+
+    <!-- Bad Form Color -->
+    <Color x:Key="BadFormColor">#f44</Color>
+    <SolidColorBrush x:Key="BadFormColorBrush" Color="{StaticResource BadFormColor}" />
+
+</ResourceDictionary>

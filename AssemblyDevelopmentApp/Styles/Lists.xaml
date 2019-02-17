@@ -1,0 +1,102 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:AssemblyDevelopmentApp.Styles">
+
+    <Style x:Key="ProjectFilesListView" TargetType="ListView">
+
+        <Setter Property="Background" Value="{StaticResource BackgroundColorBrush}" />
+
+        <Setter Property="ItemContainerStyle">
+            <Setter.Value>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="ListViewItem">
+                                <Grid Margin="10 0 0 0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <!-- Title -->
+                                    <TextBox VerticalAlignment="Center" Style="{StaticResource InvisibleTextBox}" FontSize="16" Text="{Binding FileTitle}" />
+
+                                    <!-- IN/OUT -->
+                                    <Grid Margin="10 0 0 0" Grid.Column="1">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <!-- IN -->
+                                        <Button HorizontalAlignment="Left" Style="{StaticResource BlankButton}" Cursor="Hand" Command="{Binding BrowseInputPath}">
+                                            <TextBlock Grid.Row="0" Grid.Column="0" FontFamily="Consolas" Margin="0 5">IN</TextBlock>
+                                        </Button>
+
+                                        <!-- IN Path -->
+                                        <TextBox Grid.Row="0" Grid.Column="1" Margin="5 0 0 0" FontSize="12" Text="{Binding InputFilePath}" VerticalAlignment="Center">
+                                            <TextBox.Style>
+                                                <Style BasedOn="{StaticResource InvisibleTextBox}" TargetType="TextBox">
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding ValidInputFilePath}" Value="False">
+                                                            <Setter Property="Foreground" Value="{StaticResource BadFormColorBrush}" />
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBox.Style>
+                                        </TextBox>
+
+                                        <!-- IN To Folder -->
+                                        <Button Grid.Row="0" Grid.Column="2" Style="{StaticResource BlankButton}" Command="{Binding OpenInputPath}" Cursor="Hand">
+                                            <Image Source="..\Images\GoToFolder.png" />
+                                        </Button>
+
+                                        <!-- OUT -->
+                                        <Button Grid.Row="1" Grid.Column="0" Style="{StaticResource BlankButton}" Cursor="Hand"  Command="{Binding BrowseOutputPath}">
+                                            <TextBlock Grid.Row="1" Grid.Column="0" Style="{StaticResource FormLabel}" HorizontalAlignment="Left" FontFamily="Consolas" Margin="0 5">OUT</TextBlock>
+                                        </Button>
+
+                                        <!-- OUT Path -->
+                                        <TextBox Grid.Row="1" Grid.Column="1" Margin="5 0 0 0" FontSize="12" Text="{Binding OutputFilePath}" VerticalAlignment="Center">
+                                            <TextBox.Style>
+                                                <Style BasedOn="{StaticResource InvisibleTextBox}" TargetType="TextBox">
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding ValidOutputFilePath}" Value="False">
+                                                            <Setter Property="Foreground" Value="{StaticResource BadFormColorBrush}" />
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBox.Style>
+                                        </TextBox>
+
+                                        <!-- OUT To Folder -->
+                                        <Button Grid.Row="1" Grid.Column="2" Style="{StaticResource BlankButton}" Cursor="Hand" Command="{Binding OpenOutputPath}">
+                                            <Image Source="..\Images\GoToFolder.png" />
+                                        </Button>
+
+                                    </Grid>
+                                    
+                                    <!-- Delete Item -->
+                                    <Button Grid.Column="2" Style="{StaticResource BaseButton}" Command="{Binding DeleteItem}">
+                                        <Image Source="..\Images\Delete.png" />
+                                    </Button>
+
+                                </Grid>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+
+                </Style>
+            </Setter.Value>
+        </Setter>
+        
+    </Style>
+    
+</ResourceDictionary>

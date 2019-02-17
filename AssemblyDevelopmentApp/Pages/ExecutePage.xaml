@@ -1,0 +1,70 @@
+﻿<Page x:Class="AssemblyDevelopmentApp.Pages.ExecutePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:valueconverters="clr-namespace:AssemblyDevelopmentApp.ValueConverters"
+      mc:Ignorable="d" 
+      d:DesignHeight="400" d:DesignWidth="300"
+      Title="ExecutePage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        
+        <StackPanel>
+        
+            <!-- Title -->
+            <TextBlock HorizontalAlignment="Center" Style="{StaticResource TitleTextBlock}">Execute</TextBlock>
+        
+            <!-- Invalid Paths Error -->
+            <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Style="{StaticResource ErrorTextBlock}" Visibility="{Binding HasInvalidFiles, Converter={valueconverters:BooleanToVisibilityConverter}}">WARNING: Some files had invalid paths, this may interfere with the build/test process.</TextBlock>
+            
+            <!-- Invalid Output/Link -->
+            <TextBlock HorizontalAlignment="Center" TextWrapping="WrapWithOverflow" Style="{StaticResource ErrorTextBlock}" Visibility="{Binding HasInvalidFinalOutputOrLink, Converter={valueconverters:BooleanToVisibilityConverter}}" Foreground="{StaticResource FormColorBrush}">WARNING: Either the final output or link file paths are invalid, if these are used in the build/test process, it may not run correctly.</TextBlock>
+
+            <!-- Build -->
+            <Button Style="{StaticResource FormButton}" Margin="5" Padding="5" BorderThickness="3" FontSize="16" IsEnabled="{Binding AllValidFiles}" Command="{Binding BuildProject}">Build</Button>
+
+            <!-- Test -->
+            <Button Style="{StaticResource FormButton}" Margin="5" Padding="5" BorderThickness="3" FontSize="16" Command="{Binding TestProject}">Test</Button>
+
+            <!-- Both -->
+            <Button Style="{StaticResource FormButton}" Margin="5" Padding="5" BorderThickness="3" FontSize="16" IsEnabled="{Binding AllValidFiles}" Command="{Binding BothProject}">Both</Button>
+
+            <!-- Cygwin Start/Stop --><!--
+            <Button Margin="5" BorderThickness="2">
+                <Button.Style>
+                    <Style TargetType="Button" BasedOn="{StaticResource FormButton}">
+
+                        --><!-- "Start" --><!--
+                        <Setter Property="Content" Value="Start Cygwin" />
+                        <Setter Property="Command" Value="{Binding StartCygwin}" />
+
+                        <Style.Triggers>
+                            
+                            --><!-- "Stop" --><!--
+                            <DataTrigger Binding="{Binding CygwinRunning}" Value="True">
+                                <Setter Property="Content" Value="Stop Cygwin" />
+                                <Setter Property="Command" Value="{Binding StopCygwin}" />
+                            </DataTrigger>
+                            
+                        </Style.Triggers>
+                    </Style> 
+                </Button.Style>
+            </Button>-->
+             
+            
+        </StackPanel>
+
+        <TextBlock Grid.Row="1" Style="{StaticResource FormLabel}">Output:</TextBlock>
+        <Border x:Name="NoWrappingBorder" VerticalAlignment="Center" Margin="5" />
+
+        <!-- Cygwin Output -->
+        <TextBox Grid.Row="2" Width="{Binding ActualWidth, ElementName=NoWrappingBorder}" Margin="5" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Style="{StaticResource BaseTextBox}" Text="{Binding CygwinOutput}" />
+
+    </Grid>
+</Page>

@@ -1,0 +1,96 @@
+﻿<Page x:Class="AssemblyDevelopmentApp.Pages.ScriptingHelpPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:AssemblyDevelopmentApp.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ScriptingHelpPage">
+
+    <StackPanel Margin="5">
+        
+        <!-- Title -->
+        <TextBlock Style="{StaticResource TitleTextBlock}" HorizontalAlignment="Center">Scripting Help</TextBlock>
+        
+        <!-- Description -->
+        <TextBlock Margin="0 0 0 5" Style="{StaticResource DescriptionTextBlock}" TextWrapping="Wrap">
+            <Run>This page will help to explain how</Run> <Run FontFamily="Consolas">%PLACEHOLDERS%</Run> <Run>are used to make it easier to customize the project.</Run>
+            <Run>A placeholder is very simply something that gets replaced when you Build/Test.</Run>
+            <LineBreak /> <LineBreak />
+            <Run>For Example, in the project, you'll find "link path", you can use</Run> <Run FontFamily="Consolas">%LINKFILE%</Run> <Run>and this will be substitued with the correct value before going down to bash.</Run>
+        </TextBlock>
+
+        <!-- PROJPATH -->
+        <TextBlock Style="{StaticResource BaseTextBlock}" TextWrapping="Wrap" FontSize="20">
+            <Run FontFamily="Consolas">%PROJPATH%</Run> <Run>- The path to the directory the project is in</Run>
+        </TextBlock>
+
+        <!-- PROJFILE -->
+        <TextBlock Style="{StaticResource BaseTextBlock}" TextWrapping="Wrap" FontSize="20">
+            <Run FontFamily="Consolas">%PROJFILE%</Run> <Run>- The path to the actual project file</Run>
+        </TextBlock>
+
+        <!-- FINALOUT -->
+        <TextBlock Style="{StaticResource BaseTextBlock}" TextWrapping="Wrap" FontSize="20">
+            <Run FontFamily="Consolas">%FINALOUT%</Run> <Run>- Becomes the project's final output</Run>
+        </TextBlock>
+
+        <!-- LINKFILE -->
+        <TextBlock Style="{StaticResource BaseTextBlock}" TextWrapping="Wrap" FontSize="20">
+            <Run FontFamily="Consolas">%LINKFILE%</Run> <Run>- Becomes the project's link file</Run>
+        </TextBlock>
+
+        <!-- PROJNAME -->
+        <TextBlock Style="{StaticResource BaseTextBlock}" TextWrapping="Wrap" FontSize="20">
+            <Run FontFamily="Consolas">%PROJNAME%</Run> <Run>- Becomes the project's name</Run>
+        </TextBlock>
+
+        <!-- ASMFILESIN -->
+        <TextBlock Style="{StaticResource BaseTextBlock}" TextWrapping="Wrap" FontSize="20">
+            <Run FontFamily="Consolas">%ASMFILESIN%</Run> <Run>- All of the IN paths for all the assembly files in the project - seperated by spaces.</Run>
+        </TextBlock>
+
+        <!-- ASMFILESOUT -->
+        <TextBlock Style="{StaticResource BaseTextBlock}" TextWrapping="Wrap" FontSize="20">
+            <Run FontFamily="Consolas">%ASMFILESOUT%</Run> <Run>- Same as above, but for the OUT</Run>
+        </TextBlock>
+
+        <!-- CFILESIN -->
+        <TextBlock Style="{StaticResource BaseTextBlock}" TextWrapping="Wrap" FontSize="20">
+            <Run FontFamily="Consolas">%CFILESIN%</Run> <Run>- Same as the above, but for the C files</Run>
+        </TextBlock>
+
+        <!-- CFILESOUT -->
+        <TextBlock Style="{StaticResource BaseTextBlock}" TextWrapping="Wrap" FontSize="20">
+            <Run FontFamily="Consolas">%CFILESOUT%</Run> <Run>- Same as above, but for the OUT for C files</Run>
+        </TextBlock>
+
+        <!-- Files Description -->
+        <TextBlock Margin="0 5" Style="{StaticResource DescriptionTextBlock}">
+            The following ones are specific to only the "for each files", which is the bash that executes for every file defined.
+        </TextBlock>
+
+        <!-- FILETITLE -->
+        <TextBlock Style="{StaticResource BaseTextBlock}" FontSize="20">
+            <Run FontFamily="Consolas">%FILETITLE%</Run> <Run>- The file's title</Run>
+        </TextBlock>
+
+        <!-- FILEIN -->
+        <TextBlock Style="{StaticResource BaseTextBlock}" FontSize="20">
+            <Run FontFamily="Consolas">%FILEIN%</Run> <Run>- The in path for the file</Run>
+        </TextBlock>
+
+        <!-- FILEOUT -->
+        <TextBlock Style="{StaticResource BaseTextBlock}" FontSize="20">
+            <Run FontFamily="Consolas">%FILEOUT%</Run> <Run>- The out path for the file</Run>
+        </TextBlock>
+        
+        <!-- Final Notices and Warnings -->
+        <TextBlock TextWrapping="Wrap" Style="{StaticResource DescriptionTextBlock}">
+            <Run Foreground="{StaticResource SelectedColorBrush}">NOTE: YOU CAN MAKE THIS PROGRAM NOT TREAT THE PLACEHOLDERS AS PLACEHOLDERS BY PUTTING A "\" BEFORE THEM.</Run>
+            <Run Foreground="{StaticResource FormColorBrush}">Warning: This means that in order to actually pass "\" to bash, you need to do "\\" (regardless of whether it's before a placeholder or not)</Run>
+        </TextBlock>
+
+    </StackPanel>
+</Page>
